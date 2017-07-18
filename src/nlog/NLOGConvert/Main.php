@@ -12,13 +12,14 @@ class Main extends PluginBase implements Listener{
 		
 		@mkdir($this->getDataFolder());
 		
+		$convertedData = [ ];
+		$convertedData ["areaIndex"] = "";
 		$i = 1;
 		
-		while ($i < 40) {
+		while ($i < 3) {
 			
 			$yml = yaml_parse_file($this->getDataFolder()."lands/".$i.".yml");
 			
-			$convertedData = [ ];
 			$convertedData [$i] = [ 
 							"id" => $yml ["landnumber"],
 							"owner" => $yml ["owner"],
@@ -36,10 +37,13 @@ class Main extends PluginBase implements Listener{
 							"pvpAllow" => $yml ["isallowfight"],
 							"invenSave" => true
 					];
-			$this->getLogger()->info($i."번 땅 변환 중...");
+			$this->getLogger()->info($i."번 땅 정보 확인 중...");
 			$i = $i + 1;
-			(new Config($this->getDataFolder().'protects.json', Config::JSON, $convertedData))->save();
 		}
+		$this->getLogger()->info("땅 변환 중...");
+		$convertedData ["areaIndex"] = $i-1;
+		(new Config($this->getDataFolder().'protects.json', Config::JSON, $convertedData))->save();
+		$this->getLogger()->info("땅 변환 완료!");
 	}
 }
 ?>
