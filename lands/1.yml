@@ -1,0 +1,20 @@
+landnumber: 1
+owner: mintoes
+members:
+- mintoes
+startx: 117
+endx: 148
+startz: 117
+endz: 148
+issail: false
+price: 20000.0
+spawnpoint: 132.0:9.0:132.0
+isallowfight: false
+isallowaccess: true
+isallowpickupitem: false
+isallowdoor: true
+isallowchest: false
+isallowcraft: true
+welcomemessage: ''
+welcomeparticle: 0
+rooms: {}
