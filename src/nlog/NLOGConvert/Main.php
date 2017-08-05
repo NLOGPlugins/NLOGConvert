@@ -38,10 +38,10 @@ class Main extends PluginBase implements Listener{
 							"invenSave" => true
 					];
 			$this->getLogger()->info($i."번 땅 정보 확인 중...");
-			$i = $i + 1;
+			$i++;
 		}
 		$this->getLogger()->info("땅 변환 중...");
-		$convertedData ["areaIndex"] = $i-1;
+		$convertedData ["areaIndex"] = $i--;
 		(new Config($this->getDataFolder().'protects.json', Config::JSON, $convertedData))->save();
 		$this->getLogger()->info("땅 변환 완료!");
 	}
